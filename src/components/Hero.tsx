@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, Code2, Terminal, Cpu } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,15 +24,15 @@ const Hero = () => {
       opacity: number;
     }> = [];
 
-    // Create floating particles
-    for (let i = 0; i < 50; i++) {
+    // Create subtle floating particles
+    for (let i = 0; i < 30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25,
-        opacity: Math.random() * 0.5 + 0.2,
+        size: Math.random() * 2 + 0.5,
+        speedX: Math.random() * 0.3 - 0.15,
+        speedY: Math.random() * 0.3 - 0.15,
+        opacity: Math.random() * 0.3 + 0.1,
       });
     }
 
@@ -72,96 +73,115 @@ const Hero = () => {
     }
   };
 
+  const scrollToProjects = () => {
+    const projectsSection = document.querySelector('#projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background Canvas */}
+      {/* Dark Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-black" />
+      
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 grid-bg opacity-20" />
+      
+      {/* Subtle Particle Canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20"
       />
 
-      {/* Floating Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 border border-primary/30 rounded-full floating" style={{ animationDelay: '0s' }} />
-        <div className="absolute top-40 right-20 w-24 h-24 border border-accent/30 rounded-lg floating" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-32 left-1/4 w-20 h-20 border border-primary/20 rounded-full floating" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-40 right-1/3 w-28 h-28 border border-accent/20 transform rotate-45 floating" style={{ animationDelay: '0.5s' }} />
+      {/* Animated Gradient Waves */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-gradient-wave" />
+        <div className="absolute bottom-1/3 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent animate-gradient-wave" style={{ animationDelay: '2s' }} />
       </div>
+
+      {/* Glassmorphism Panels */}
+      <div className="absolute top-20 right-20 w-32 h-32 glass rounded-2xl opacity-30 animate-floating" style={{ animationDelay: '1s' }} />
+      <div className="absolute bottom-32 left-16 w-24 h-40 glass rounded-2xl opacity-20 animate-floating" style={{ animationDelay: '3s' }} />
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        {/* Glitch Text Effect */}
-        <div className="mb-6">
-          <p className="text-accent font-mono text-lg mb-2 animate-fade-in">Hi, my name is</p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 glitch gradient-text" data-text="Alex Johnson">
-            Alex Johnson
+        {/* Brand Introduction */}
+        <div className="mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-accent font-mono text-lg mb-4 opacity-80">
+            Welcome to the future of web development
+          </p>
+        </div>
+
+        {/* Main Brand Name */}
+        <div className="mb-8 fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight">
+            <span className="animated-gradient-text font-black">
+              Webwave
+            </span>
+            <br />
+            <span className="glow-text text-foreground font-light">
+              Innovations
+            </span>
           </h1>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-muted mb-6 glow-text">
-            I build things for the web.
+        </div>
+
+        {/* Tagline */}
+        <div className="mb-12 fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-muted max-w-4xl mx-auto leading-relaxed">
+            Crafting digital experiences that 
+            <span className="gradient-text font-semibold"> push boundaries </span>
+            and inspire innovation.
           </h2>
         </div>
 
-        {/* Description */}
-        <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-8 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          I'm a frontend developer specializing in creating exceptional digital experiences. 
-          Currently focused on building accessible, human-centered products with modern technologies.
-        </p>
-
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-          <button 
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 fade-in-up" style={{ animationDelay: '0.8s' }}>
+          <Button 
+            size="lg"
             onClick={scrollToAbout}
-            className="glass px-8 py-4 rounded-lg hover:glow-primary transition-all duration-300 font-semibold group"
+            className="glass px-12 py-6 text-lg font-semibold rounded-2xl hover:glow-primary hover:scale-105 transition-all duration-300 group border-primary/20 border"
           >
-            <span className="flex items-center justify-center gap-2">
-              <Code2 className="h-5 w-5 group-hover:animate-pulse" />
-              Check out my work!
+            <span className="flex items-center gap-3">
+              Start a Project
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </span>
-          </button>
-          <a 
-            href="#contact"
-            className="border border-primary/50 px-8 py-4 rounded-lg hover:glow-accent transition-all duration-300 font-semibold hover:bg-primary/10"
+          </Button>
+          
+          <Button 
+            variant="outline"
+            size="lg"
+            onClick={scrollToProjects}
+            className="px-12 py-6 text-lg font-semibold rounded-2xl hover:glow-accent hover:scale-105 transition-all duration-300 group bg-transparent border-accent/30 hover:bg-accent/5"
           >
-            Get In Touch
-          </a>
+            <span className="flex items-center gap-3">
+              <Play className="h-5 w-5 group-hover:scale-110 transition-transform" />
+              View Portfolio
+            </span>
+          </Button>
         </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center space-x-6 mb-16 animate-fade-in" style={{ animationDelay: '0.9s' }}>
+        {/* Metrics/Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto fade-in-up" style={{ animationDelay: '1s' }}>
           {[
-            { icon: Github, href: '#', label: 'GitHub' },
-            { icon: Linkedin, href: '#', label: 'LinkedIn' },
-            { icon: Mail, href: '#', label: 'Email' },
-          ].map(({ icon: Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              className="group relative p-3 glass rounded-full hover:glow-accent transition-all duration-300"
-              aria-label={label}
-            >
-              <Icon className="h-6 w-6 group-hover:scale-110 transition-transform" />
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-xs font-mono text-accent">{label}</span>
+            { number: '100+', label: 'Projects Delivered' },
+            { number: '50+', label: 'Happy Clients' },
+            { number: '3+', label: 'Years Experience' },
+            { number: '24/7', label: 'Support Available' },
+          ].map(({ number, label }, index) => (
+            <div key={label} className="text-center group">
+              <div className="text-2xl md:text-3xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">
+                {number}
               </div>
-            </a>
+              <div className="text-sm text-muted font-mono">{label}</div>
+            </div>
           ))}
         </div>
-
-        {/* Scroll Indicator */}
-        <button 
-          onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:glow-primary transition-all p-2 rounded-full"
-        >
-          <ChevronDown className="h-8 w-8 text-primary" />
-        </button>
       </div>
 
-      {/* Tech Icons Floating */}
-      <div className="absolute top-1/4 right-8 space-y-8 opacity-20">
-        <Terminal className="h-12 w-12 text-primary floating" />
-        <Code2 className="h-10 w-10 text-accent floating" style={{ animationDelay: '1s' }} />
-        <Cpu className="h-8 w-8 text-primary floating" style={{ animationDelay: '2s' }} />
-      </div>
+      {/* Ambient Glow Effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
     </section>
   );
 };

@@ -152,6 +152,30 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Animated Gradient Text */
+  .animated-gradient-text {
+    background: linear-gradient(-45deg, hsl(var(--primary-cyan)), hsl(var(--accent-mint)), hsl(var(--primary-cyan)), hsl(var(--accent-mint)));
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+  }
+
+  /* Grid Background */
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridPulse 4s ease-in-out infinite;
+  }
+
+  /* Fade In Up Animation */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
   
   /* Glitch Effect */
   .glitch {
@@ -244,4 +268,33 @@
   40% { transform: translate(1px, 1px); }
   60% { transform: translate(-1px, -1px); }
   80% { transform: translate(-1px, 1px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientWave {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }

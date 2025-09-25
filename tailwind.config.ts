@@ -105,6 +105,18 @@ export default {
           '60%': { transform: 'translate(2px, 2px)' },
           '80%': { transform: 'translate(2px, -2px)' },
         },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        gradientWave: {
+          '0%, 100%': { transform: 'translateX(-100%)' },
+          '50%': { transform: 'translateX(100%)' },
+        },
+        fadeInUp: {
+          'from': { opacity: '0', transform: 'translateY(30px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -112,6 +124,9 @@ export default {
         "floating": "floating 3s ease-in-out infinite",
         "pulse-glow": "pulseGlow 2s ease-in-out infinite alternate",
         "glitch": "glitch 2s infinite",
+        "gradient-shift": "gradientShift 3s ease-in-out infinite",
+        "gradient-wave": "gradientWave 4s ease-in-out infinite",
+        "fade-in-up": "fadeInUp 0.8s ease-out forwards",
       },
     },
   },
