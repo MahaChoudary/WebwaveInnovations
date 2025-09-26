@@ -117,6 +117,30 @@ export default {
           'from': { opacity: '0', transform: 'translateY(30px)' },
           'to': { opacity: '1', transform: 'translateY(0)' },
         },
+        matrixRain: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        typing: {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        blinkCaret: {
+          'from, to': { borderColor: 'transparent' },
+          '50%': { borderColor: 'hsl(var(--primary-cyan))' },
+        },
+        circuitPulse: {
+          '0%, 100%': { opacity: '0.3', transform: 'scaleX(1)' },
+          '50%': { opacity: '1', transform: 'scaleX(1.2)' },
+        },
+        streamFlow: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        hologramScan: {
+          '0%, 100%': { backgroundPosition: '0% 0%' },
+          '50%': { backgroundPosition: '100% 100%' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -127,6 +151,12 @@ export default {
         "gradient-shift": "gradientShift 3s ease-in-out infinite",
         "gradient-wave": "gradientWave 4s ease-in-out infinite",
         "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+        "matrix-rain": "matrixRain 10s linear infinite",
+        "typing": "typing 3s steps(40, end)",
+        "blink-caret": "blinkCaret 0.75s step-end infinite",
+        "circuit-pulse": "circuitPulse 2s ease-in-out infinite",
+        "stream-flow": "streamFlow 15s linear infinite",
+        "hologram-scan": "hologramScan 3s ease-in-out infinite",
       },
     },
   },

@@ -204,6 +204,90 @@
     color: hsl(var(--accent-mint));
     z-index: -2;
   }
+
+  /* Hacker Terminal Effect */
+  .terminal-effect {
+    background: linear-gradient(135deg, hsl(var(--bg-dark) / 0.95), hsl(var(--bg-dark) / 0.85));
+    border: 1px solid hsl(var(--primary-cyan) / 0.3);
+    box-shadow: 
+      0 0 20px hsl(var(--primary-cyan) / 0.1),
+      inset 0 0 20px hsl(var(--primary-cyan) / 0.05);
+  }
+
+  /* Matrix Rain Effect */
+  .matrix-bg {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      hsl(var(--primary-cyan) / 0.03) 50%,
+      transparent 100%
+    );
+    animation: matrixRain 10s linear infinite;
+  }
+
+  /* Typing Effect */
+  .typing-effect {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary-cyan));
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  /* Circuit Line Effect */
+  .circuit-line {
+    position: relative;
+  }
+
+  .circuit-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary-cyan) / 0.5) 25%,
+      hsl(var(--accent-mint) / 0.8) 50%,
+      hsl(var(--primary-cyan) / 0.5) 75%,
+      transparent 100%
+    );
+    animation: circuitPulse 2s ease-in-out infinite;
+  }
+
+  /* Data Stream Effect */
+  .data-stream {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .data-stream::after {
+    content: '01001000 01100001 01100011 01101011 01100101 01110010';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    color: hsl(var(--primary-cyan) / 0.1);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    animation: streamFlow 15s linear infinite;
+    z-index: -1;
+  }
+
+  /* Hologram Effect */
+  .hologram {
+    position: relative;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      hsl(var(--primary-cyan) / 0.1) 50%,
+      transparent 70%
+    );
+    background-size: 20px 20px;
+    animation: hologramScan 3s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
@@ -297,4 +381,34 @@
   50% {
     opacity: 0.3;
   }
+}
+
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: hsl(var(--primary-cyan)); }
+}
+
+@keyframes circuitPulse {
+  0%, 100% { opacity: 0.3; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.2); }
+}
+
+@keyframes streamFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes hologramScan {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
 }
