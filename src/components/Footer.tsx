@@ -16,7 +16,7 @@ const Footer = () => {
   useEffect(() => {
     const commands = [
       'status: online',
-      'location: San Francisco',
+      'location: Pakistan, Sialkot',
       'coding: React + TypeScript',
       'listening: Lo-fi Hip Hop',
       'mood: creative',
@@ -40,13 +40,13 @@ const Footer = () => {
     },
     { 
       icon: Linkedin, 
-      href: '#', 
+      href: 'https://www.linkedin.com/in/maheenhamidd/', 
       label: 'LinkedIn',
       hoverColor: 'hover:text-blue-400 hover:glow-primary'
     },
     { 
       icon: Mail, 
-      href: 'mailto:alex@example.com', 
+      href: 'mailto:innovationswebwave@gmail.com', 
       label: 'Email',
       hoverColor: 'hover:text-accent hover:glow-accent'
     },
@@ -56,6 +56,7 @@ const Footer = () => {
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
     { label: 'Services', href: '#services' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -101,11 +102,11 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3 group">
               <div className="relative">
-                <Terminal className="h-8 w-8 text-primary group-hover:animate-pulse transition-all" />
+               
                 <div className="absolute inset-0 bg-primary opacity-20 rounded-full blur-lg group-hover:opacity-40 transition-opacity" />
               </div>
               <span className="text-xl font-bold font-mono gradient-text">
-                &lt;DevFolio/&gt;
+                &lt;Webwave Innovations/&gt;
               </span>
             </div>
             
@@ -117,12 +118,12 @@ const Footer = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 max-w-sm">
               <div className="glass p-3 rounded-lg text-center">
-                <div className="text-lg font-bold text-primary">50+</div>
-                <div className="text-xs text-muted">Projects</div>
+                <div className="text-lg font-bold text-primary cursor-pointer">35+</div>
+                <div className="text-xs text-muted cursor-pointer">Projects</div>
               </div>
               <div className="glass p-3 rounded-lg text-center">
-                <div className="text-lg font-bold text-accent">4+</div>
-                <div className="text-xs text-muted">Years Exp</div>
+                <div className="text-lg font-bold text-accent cursor-pointer">1.5+</div>
+                <div className="text-xs text-muted cursor-pointer">Years Exp</div>
               </div>
             </div>
           </div>
@@ -159,6 +160,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"                // ✅ yahan likhna hai
+                  rel="noopener noreferrer"     // ✅ security ke liye
                   className={`glass p-3 rounded-full transition-all group ${social.hoverColor}`}
                   aria-label={social.label}
                 >
@@ -177,7 +180,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                  Currently learning: Next.js 15
+                  Currently learning: Next.js 15 
                 </div>
                 <div className="flex items-center gap-2">
                   <Coffee className="w-3 h-3" />
@@ -202,7 +205,7 @@ const Footer = () => {
             <div className="flex items-center gap-4 text-muted">
               <span className="flex items-center gap-1">
                 Made with <Heart className="h-4 w-4 text-red-500 animate-pulse" fill="currentColor" /> 
-                by Alex Johnson
+                by Maheen Hamid
               </span>
             </div>
           </div>

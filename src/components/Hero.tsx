@@ -9,7 +9,7 @@ const Hero = () => {
 
   const hackerIntro = "console.log('Initializing system...');";
   const name = "Maheen Hamid";
-  const title = "Frontend Developer & Digital Architect";
+  const title = "Full-Stack & AI/ML Engineer · Digital Architect";
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -136,13 +136,14 @@ const Hero = () => {
       </div>
 
       {/* Holographic Panels */}
-      <div className="absolute top-20 right-20 w-32 h-32 terminal-effect rounded-lg opacity-20 animate-floating hologram" style={{ animationDelay: '1s' }} />
+      <div className=" absolute top-20 right-20 w-32 h-32 terminal-effect rounded-lg opacity-20 animate-floating hologram" style={{ animationDelay: '1s' }} />
       <div className="absolute bottom-32 left-16 w-24 h-40 terminal-effect rounded-lg opacity-15 animate-floating" style={{ animationDelay: '3s' }} />
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         {/* Terminal Header */}
-        <div className="mb-8 fade-in-up terminal-effect rounded-lg p-4 max-w-md mx-auto" style={{ animationDelay: '0.1s' }}>
+        <div className="mt-6 mb-8 fade-in-up terminal-effect rounded-lg p-4 max-w-md mx-auto" style={{ animationDelay: '0.1s' }}>
+          
           <div className="flex items-center gap-2 text-accent font-mono text-sm mb-2">
             <Terminal className="h-4 w-4" />
             <span>system@maheen:~$</span>
@@ -181,9 +182,9 @@ const Hero = () => {
         {/* Mission Statement */}
         <div className="mb-12 fade-in-up data-stream" style={{ animationDelay: '0.6s' }}>
           <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed font-mono">
-            <span className="text-primary">[MISSION]</span> Crafting immersive digital experiences through 
-            <span className="gradient-text font-semibold"> cutting-edge frontend technologies</span>, 
-            transforming complex ideas into elegant, user-centric solutions.
+            <span className="text-primary">[MISSION]</span> Crafting intelligent, scalable digital systems by combining 
+            <span className="gradient-text font-semibold"> cutting-edge full-stack engineering</span> with AI-driven intelligence, 
+            transforming complex ideas into elegant, data-powered, user-centric solutions.
           </p>
         </div>
 
@@ -191,7 +192,7 @@ const Hero = () => {
         <div className="mb-12 fade-in-up" style={{ animationDelay: '0.7s' }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { icon: Code, label: 'Frontend Specialist', value: 'React, TypeScript, Next.js' },
+              { icon: Code, label: 'Full Stack Specialist', value: 'React, TypeScript, Next.js' },
               { icon: Zap, label: 'Performance Optimizer', value: 'Lightning-fast UX' },
               { icon: Terminal, label: 'Problem Solver', value: 'Clean, scalable code' },
             ].map(({ icon: Icon, label, value }, index) => (
@@ -206,17 +207,7 @@ const Hero = () => {
 
         {/* Action Commands */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <Button 
-            size="lg"
-            onClick={scrollToAbout}
-            className="terminal-effect px-8 py-4 text-lg font-mono rounded-lg hover:glow-primary hover:scale-105 transition-all duration-300 group border-primary/30 border bg-primary/10 hover:bg-primary/20"
-          >
-            <span className="flex items-center gap-3">
-              <Terminal className="h-5 w-5" />
-              ./initiate_project
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </Button>
+       
           
           <Button 
             variant="outline"
@@ -226,7 +217,7 @@ const Hero = () => {
           >
             <span className="flex items-center gap-3">
               <Code className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              ./view_portfolio
+              ./view_projects
             </span>
           </Button>
         </div>
@@ -234,7 +225,7 @@ const Hero = () => {
         {/* System Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto fade-in-up" style={{ animationDelay: '1s' }}>
           {[
-            { value: '50+', label: 'Projects Deployed', prefix: 'SYS_' },
+            { value: '35+', label: 'Projects Deployed', prefix: 'SYS_' },
             { value: '100%', label: 'Uptime Record', prefix: 'REL_' },
             { value: '3+', label: 'Years Active', prefix: 'EXP_' },
             { value: '24/7', label: 'Debug Mode', prefix: 'SUP_' },
@@ -252,8 +243,8 @@ const Hero = () => {
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in-up" style={{ animationDelay: '1.2s' }}>
           <div className="flex flex-col items-center gap-2 text-accent">
-            <span className="text-xs font-mono">SCROLL_TO_EXPLORE</span>
-            <ChevronDown className="h-4 w-4 animate-bounce" />
+          
+            
           </div>
         </div>
       </div>
@@ -263,9 +254,7 @@ const Hero = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
       
       {/* Corner Decorations */}
-      <div className="absolute top-4 left-4 text-primary/30 font-mono text-xs">
-        v2.1.3_PROD
-      </div>
+     
       <div className="absolute top-4 right-4 text-accent/30 font-mono text-xs">
         STATUS: ACTIVE
       </div>

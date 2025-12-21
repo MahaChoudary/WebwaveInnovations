@@ -1,42 +1,80 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Code, Smartphone, Globe } from 'lucide-react';
-import ecommerceImage from '../assets/project-ecommerce.jpg';
-import aiDashboardImage from '../assets/project-ai-dashboard.jpg';
-import socialAppImage from '../assets/project-social-app.jpg';
+import codingoImage from '../assets/codingo.png';
+import wukalaGptImage from '../assets/wukalagpt.png';
+import cafeImage from '../assets/cafe.png';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A modern e-commerce platform built with Next.js, featuring real-time inventory, payment processing, and admin dashboard.',
-      image: ecommerceImage,
-      tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Tailwind CSS'],
+      title: 'Codingo — AI-Powered Learning Platform',
+      description: 'An intelligent, gamified coding-education platform designed to provide structured learning paths, interactive challenges, and AI-assisted guidance for students and aspiring developers.',
+      image: codingoImage,
+      imageFit: 'contain' as const,
+      roundedImage: true,
+      tech: [
+        'Frontend: Next.js, React, TypeScript, Tailwind CSS',
+        'Backend: Node.js, RESTful APIs, Auth (JWT / Session-based)',
+        'Database: PostgreSQL / MongoDB',
+        'AI Integration: API-based models for guidance & recommendations',
+        'Deployment: Vercel (or similar) + Git-based CI/CD',
+      ],
       liveUrl: '#',
       githubUrl: '#',
-      category: 'Full-Stack',
-      features: ['Real-time inventory', 'Payment processing', 'Admin dashboard', 'Mobile responsive'],
+      category: 'EdTech / AI',
+      features: [
+        'AI-guided coding roadmaps and learning paths',
+        'Interactive coding challenges and progress tracking',
+        'Gamified experience with achievements and milestones',
+        'User authentication and role-based access',
+        'Fully responsive, student-friendly interface',
+      ],
     },
     {
-      title: 'AI Dashboard',
-      description: 'An intelligent analytics dashboard with machine learning insights, data visualization, and predictive analytics.',
-      image: aiDashboardImage,
-      tech: ['React', 'D3.js', 'Python', 'TensorFlow', 'FastAPI'],
+      title: 'Wukala-GPT — AI-Powered Legal Intelligence Platform',
+      description: 'An intelligent legal assistance platform offering AI-driven legal guidance, document understanding, and access to verified legal professionals within Pakistan’s legal ecosystem.',
+      image: wukalaGptImage,
+      imageFit: 'contain' as const,
+      roundedImage: true,
+      tech: ['React / Next.js', 'TypeScript', 'Tailwind CSS', 'API-based AI (LLMs)', 'Backend APIs (Node.js / ASP.NET Core)'],
       liveUrl: '#',
       githubUrl: '#',
-      category: 'Data Visualization',
-      features: ['ML insights', 'Interactive charts', 'Real-time data', 'Predictive analytics'],
+      category: 'LegalTech / AI',
+      features: [
+        'AI-powered legal Q&A and case guidance',
+        'Legal document analysis and summarization',
+        'Lawyer discovery with specialization filters',
+        'Secure user authentication and role-based access',
+        'Responsive, user-focused interface',
+      ],
     },
     {
-      title: 'Social Media App',
-      description: 'A social networking platform with real-time chat, media sharing, and advanced privacy controls.',
-      image: socialAppImage,
-      tech: ['React Native', 'GraphQL', 'Node.js', 'MongoDB', 'Socket.io'],
+      title: "LaLa's Cafe — Digital Cafe Experience Platform",
+      description:
+        'A modern cafe website designed to showcase the brand, highlight the menu, promote events, and engage customers through a clean, user-friendly digital experience.',
+      image: cafeImage,
+      imageFit: 'contain' as const,
+      roundedImage: true,
+      tech: [
+        'React / Next.js',
+        'TypeScript',
+        'Tailwind CSS',
+        'Modern UI animations',
+        'Optimized deployment & hosting',
+      ],
       liveUrl: '#',
       githubUrl: '#',
-      category: 'Mobile App',
-      features: ['Real-time chat', 'Media sharing', 'Privacy controls', 'Cross-platform'],
+      category: 'Digital Experience',
+      features: [
+        'Modern responsive UI for all devices',
+        'Interactive menu showcase',
+        'Event & Qawwali nights highlights',
+        'Contact & location information',
+        'Newsletter / launch updates section',
+        'Fast loading and smooth navigation',
+      ],
     },
   ];
 
@@ -71,7 +109,15 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className={`transition-transform duration-500 group-hover:scale-105 ${
+                        project.roundedImage
+                          ? 'w-64 h-64 lg:w-80 lg:h-80 mx-auto my-10 rounded-full border border-primary/20 bg-background/80 p-6 object-contain'
+                          : 'w-full h-64 lg:h-80'
+                      } ${
+                        project.imageFit === 'contain'
+                          ? 'object-contain bg-card'
+                          : 'object-cover'
+                      }`}
                     />
                     <div className="absolute inset-0 bg-gradient-primary opacity-20 group-hover:opacity-10 transition-opacity"></div>
                     

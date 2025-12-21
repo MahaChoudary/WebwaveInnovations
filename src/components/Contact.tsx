@@ -19,65 +19,67 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate terminal processing
-    const processingSteps = [
-      '$ Processing your message...',
-      '$ Validating form data...',
-      '$ Establishing secure connection...',
-      '$ Message sent successfully! ✓',
-      '$ Thank you for reaching out!'
-    ];
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    setTerminalOutput(['$ Initializing contact terminal...']);
+  try {
+    const response = await fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-    for (let i = 0; i < processingSteps.length; i++) {
-      await new Promise(resolve => setTimeout(resolve, 800));
-      setTerminalOutput(prev => [...prev, processingSteps[i]]);
+    const data = await response.json();
+
+    if (data.success) {
+      setTerminalOutput(prev => [...prev, "$ Message sent successfully! ✓"]);
+      setShowSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      setTerminalOutput(prev => [...prev, "$ Failed to send message ❌"]);
     }
+  } catch (error) {
+    console.error("Error:", error);
+    setTerminalOutput(prev => [...prev, "$ Error: Could not send message"]);
+  }
 
-    setIsSubmitting(false);
-    setShowSuccess(true);
-    setFormData({ name: '', email: '', message: '' });
+  setIsSubmitting(false);
 
-    // Reset after 5 seconds
-    setTimeout(() => {
-      setShowSuccess(false);
-      setTerminalOutput([
-        '$ Initializing contact terminal...',
-        '$ Ready to receive your message'
-      ]);
-    }, 5000);
-  };
+  setTimeout(() => {
+    setShowSuccess(false);
+    setTerminalOutput([
+      "$ Initializing contact terminal...",
+      "$ Ready to receive your message",
+    ]);
+  }, 5000);
+};
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      value: 'alex@example.com',
-      link: 'mailto:alex@example.com'
+      value: 'innovationswebwave@gmail.com',
+      link: 'mailto:innovationswebwave@gmail.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+923311432480',
+      link: 'tel:+923311432480'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Pakistan, Sialkot',
       link: '#'
     }
   ];
 
   const socialLinks = [
     { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/maheenhamidd/', label: 'LinkedIn' },
+    
   ];
 
   return (
@@ -132,6 +134,8 @@ const Contact = () => {
                   <a
                     key={index}
                     href={social.href}
+                     target="_blank"
+                    rel="noopener noreferrer"
                     className="glass p-3 rounded-full hover:glow-primary transition-all group"
                     aria-label={social.label}
                   >
@@ -242,11 +246,7 @@ const Contact = () => {
             </form>
 
             {/* Command Hint */}
-            <div className="mt-6 p-4 bg-card/50 rounded-lg border-l-2 border-accent">
-              <p className="text-sm font-mono text-muted">
-                <span className="text-accent">Tip:</span> Type "help" in any terminal for hidden commands 🎯
-              </p>
-            </div>
+          
           </div>
         </div>
       </div>

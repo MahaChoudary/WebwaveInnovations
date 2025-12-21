@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { 
-  Code, 
-  Smartphone, 
-  Palette, 
-  Zap, 
-  Globe, 
+import {
+  Code,
+  Smartphone,
+  Palette,
+  Zap,
+  Globe,
   Database,
   Figma,
   Monitor,
-  Layers
+  Layers,
+  Shield,
+  Gauge,
+  Workflow,
+  GitBranch,
 } from 'lucide-react';
 
 const Services = () => {
@@ -16,81 +20,139 @@ const Services = () => {
 
   const skills = [
     {
-      icon: Code,
-      title: 'HTML/CSS',
-      description: 'Semantic markup and modern CSS with Flexbox, Grid, and animations',
-      level: 95,
-      color: 'from-orange-500 to-red-500',
-    },
-    {
-      icon: Code,
-      title: 'JavaScript',
-      description: 'ES6+ features, async/await, DOM manipulation, and modern JS patterns',
-      level: 92,
-      color: 'from-yellow-400 to-orange-500',
-    },
-    {
       icon: Layers,
-      title: 'TypeScript',
-      description: 'Type-safe JavaScript with interfaces, generics, and advanced typing',
-      level: 88,
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: Zap,
-      title: 'React',
-      description: 'Hooks, Context API, state management, and component architecture',
-      level: 94,
+      title: 'Frontend Architecture & UI Engineering',
+      description: 'Building scalable, maintainable, and performance-driven user interfaces for production-grade applications.',
+      level: 95,
       color: 'from-cyan-400 to-blue-500',
     },
     {
       icon: Globe,
-      title: 'Next.js',
-      description: 'SSR, SSG, API routes, and performance optimization',
-      level: 85,
-      color: 'from-gray-700 to-black',
+      title: 'React & Next.js Ecosystem',
+      description: 'Developing enterprise-ready applications using React, Next.js (SSR/SSG), and modern rendering strategies.',
+      level: 92,
+      color: 'from-indigo-500 to-sky-500',
     },
     {
-      icon: Palette,
-      title: 'Tailwind CSS',
-      description: 'Utility-first CSS framework with custom design systems',
-      level: 96,
-      color: 'from-teal-400 to-blue-600',
+      icon: Code,
+      title: 'TypeScript-First Development',
+      description: 'Designing robust systems with strong typing, interfaces, generics, and predictable application behavior.',
+      level: 90,
+      color: 'from-blue-500 to-cyan-400',
+    },
+    {
+      icon: Database,
+      title: 'Backend API Engineering',
+      description: 'Developing secure and scalable REST APIs, handling business logic, authentication, and integrations.',
+      level: 70,
+      color: 'from-emerald-500 to-teal-500',
+    },
+    {
+      icon: Database,
+      title: 'Database Design & Data Modeling',
+      description: 'Designing relational schemas, managing queries, and ensuring data consistency and integrity.',
+      level: 68,
+      color: 'from-amber-500 to-orange-500',
+    },
+    {
+      icon: Zap,
+      title: 'AI Integration & Intelligent Systems',
+      description: 'Embedding AI capabilities into applications using API-based models for automation and insights.',
+      level: 72,
+      color: 'from-fuchsia-500 to-purple-500',
+    },
+    {
+      icon: Shield,
+      title: 'Security & Access Control',
+      description: 'Implementing authentication, role-based access control, and secure data handling practices.',
+      level: 70,
+      color: 'from-rose-500 to-red-500',
+    },
+    {
+      icon: Gauge,
+      title: 'Performance Optimization & Scalability',
+      description: 'Optimizing rendering, APIs, and database interactions for speed, reliability, and growth.',
+      level: 78,
+      color: 'from-lime-400 to-emerald-500',
+    },
+    {
+      icon: Smartphone,
+      title: 'Responsive & Cross-Platform Systems',
+      description: 'Ensuring consistent behavior and usability across devices, browsers, and screen sizes.',
+      level: 90,
+      color: 'from-cyan-500 to-sky-400',
     },
     {
       icon: Monitor,
-      title: 'ShadCN/UI',
-      description: 'Modern component library with customizable, accessible components',
-      level: 90,
-      color: 'from-purple-500 to-pink-500',
+      title: 'SEO & Production Readiness',
+      description: 'Building SEO-friendly, indexable, and production-ready web applications.',
+      level: 82,
+      color: 'from-slate-500 to-gray-700',
     },
     {
-      icon: Figma,
-      title: 'Figma',
-      description: 'Design systems, prototyping, and design-to-code workflows',
-      level: 82,
-      color: 'from-pink-500 to-rose-500',
+      icon: Workflow,
+      title: 'System Integration & SaaS Architecture',
+      description: 'Connecting multiple services, APIs, and modules into a cohesive SaaS platform.',
+      level: 75,
+      color: 'from-teal-500 to-cyan-500',
+    },
+    {
+      icon: GitBranch,
+      title: 'Professional Development Workflow',
+      description: 'Using Git, structured workflows, debugging strategies, and deployment pipelines for real-world teams.',
+      level: 85,
+      color: 'from-purple-500 to-indigo-500',
     },
   ];
 
   const services = [
     {
-      icon: Code,
-      title: 'Frontend Development',
-      description: 'Building responsive, performant web applications with modern frameworks and best practices.',
-      features: ['React/Next.js Apps', 'TypeScript Implementation', 'Performance Optimization', 'SEO-Friendly Code'],
+      icon: Layers,
+      title: 'Full-Stack Application Engineering',
+      description: 'Designing and building scalable, secure, and high-performance web applications by combining modern frontend frameworks with robust backend systems.',
+      features: [
+        'React / Next.js application architecture',
+        'TypeScript-driven development',
+        'Backend API integration & logic',
+        'Performance optimization & scalability',
+        'Secure authentication & authorization',
+      ],
     },
     {
-      icon: Smartphone,
-      title: 'Mobile-First Design',
-      description: 'Creating seamless experiences across all devices with responsive design principles.',
-      features: ['Responsive Layouts', 'Touch-Friendly Interfaces', 'Progressive Web Apps', 'Cross-Browser Testing'],
+      icon: Zap,
+      title: 'AI-Powered Feature Development',
+      description: 'Integrating artificial intelligence into real-world applications to deliver intelligent, context-aware, and automation-driven user experiences.',
+      features: [
+        'AI-driven chat & recommendation systems',
+        'Document analysis & intelligent search',
+        'API-based AI / LLM integration',
+        'Prompt engineering & workflow design',
+        'Data-aware UI experiences',
+      ],
+    },
+    {
+      icon: Globe,
+      title: 'Responsive & Cross-Platform Systems',
+      description: 'Creating seamless, device-agnostic experiences with mobile-first design principles and consistent behavior across platforms.',
+      features: [
+        'Responsive layouts & adaptive UI',
+        'Cross-browser & cross-device testing',
+        'Progressive Web App foundations',
+        'Performance-optimized rendering',
+        'SEO-friendly application structure',
+      ],
     },
     {
       icon: Palette,
-      title: 'UI/UX Implementation',
-      description: 'Transforming designs into pixel-perfect, interactive user interfaces.',
-      features: ['Design System Implementation', 'Animation & Micro-interactions', 'Accessibility Compliance', 'Component Libraries'],
+      title: 'UI/UX & System Integration',
+      description: 'Transforming complex system logic and designs into intuitive, accessible, and production-ready user interfaces.',
+      features: [
+        'Design-to-code implementation',
+        'Component-driven architecture',
+        'Animation & micro-interactions',
+        'Accessibility & usability compliance',
+        'Scalable design system integration',
+      ],
     },
   ];
 
@@ -108,7 +170,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {services.map((service, index) => (
             <div
               key={index}

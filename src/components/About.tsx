@@ -7,42 +7,39 @@ const About = () => {
 
   const timelineItems = [
     {
-      year: '2024',
-      title: 'Senior Frontend Developer',
-      company: 'TechCorp Inc.',
-      description: 'Leading frontend development for enterprise applications, mentoring junior developers.',
+      year: '2024 – Present (2025)',
+      title: 'Senior Full-Stack & AI Engineer',
+      company: 'LegalTech SaaS Project (Enterprise-Scale)',
+      description:
+        'Leading the end-to-end development of an AI-powered LegalTech SaaS platform with a focus on scalable architecture, secure systems, and intelligent automation. Responsible for full-stack development, AI/ML feature integration, performance optimization, and maintaining enterprise-grade engineering standards.',
       icon: Award,
     },
     {
-      year: '2022',
-      title: 'Frontend Developer',
-      company: 'StartupXYZ',
-      description: 'Built responsive web applications using React, TypeScript, and modern CSS frameworks.',
+      year: '2022 – 2024',
+      title: 'Full-Stack Developer | AI/ML Engineer',
+      company: 'SaaS & Web Solutions (Client & Product-Based Projects)',
+      description:
+        'Delivered 40+ client projects and SaaS-style products, managing complete front-end and back-end development lifecycles. Built scalable web applications, integrated APIs and databases, implemented AI-assisted features, and ensured production-ready performance and reliability.',
       icon: Code,
     },
     {
-      year: '2021',
-      title: 'Junior Developer',
-      company: 'WebAgency',
-      description: 'Started my journey in web development, learning modern JavaScript frameworks.',
+      year: '2021 – 2022',
+      title: 'Junior Full-Stack Developer',
+      company: 'WebWave Innovations',
+      description:
+        'Worked on multiple client projects by building responsive user interfaces, integrating APIs and backend services, and gaining hands-on experience with real-world development workflows and deployment practices.',
       icon: Zap,
     },
+
+    
     {
-      year: '2020',
-      title: 'Computer Science Graduate',
-      company: 'University',
-      description: 'Graduated with honors, specializing in software engineering and web technologies.',
+      year: '2022 – 2025 (In Progress)',
+      title: 'Bachelor of Computer Science (BSCS)',
+      company: 'University of Sialkot',
+      description:
+        'Currently pursuing a Bachelor’s degree in Computer Science with a focus on software engineering, full-stack development, AI/ML concepts, and SaaS product design. Actively applying academic learning through real-world client projects and enterprise-level systems. Expected graduation: 2026.',
       icon: Users,
     },
-  ];
-
-  const skills = [
-    { name: 'React', level: 95 },
-    { name: 'TypeScript', level: 90 },
-    { name: 'Next.js', level: 85 },
-    { name: 'Tailwind CSS', level: 92 },
-    { name: 'Node.js', level: 80 },
-    { name: 'GraphQL', level: 75 },
   ];
 
   useEffect(() => {
@@ -84,7 +81,7 @@ const About = () => {
             <div className="relative w-64 h-64 mx-auto lg:mx-0">
               <div className="relative w-full h-full rounded-full overflow-hidden glass">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  src="profile.png"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
@@ -98,9 +95,11 @@ const About = () => {
               <div className="glass p-6 rounded-xl">
                 <h3 className="text-2xl font-semibold mb-4 text-accent">My Journey</h3>
                 <p className="text-muted leading-relaxed mb-4">
-                  Hello! I'm Alex, a passionate frontend developer based in San Francisco. 
-                  My journey into web development started during my computer science studies, 
-                  where I discovered my love for creating beautiful, functional user interfaces.
+                  Hello! I’m Maheen Hamid, a Full-Stack & AI-focused Developer with a strong foundation in modern web technologies. My journey into development began during my computer science studies, where I discovered a deep interest in building clean, functional, and user-focused digital experiences.
+
+I enjoy transforming complex ideas into simple, intuitive, and scalable solutions—whether it’s crafting responsive interfaces, designing backend logic, or integrating intelligent features into web applications. I’m continuously learning and experimenting with new technologies, improving performance, and working on real-world, project-driven solutions, especially in SaaS and AI-powered platforms.
+
+Outside of coding, I enjoy exploring emerging tech trends, refining my problem-solving skills, and working on projects that challenge me to grow as an engineer.
                 </p>
                 <p className="text-muted leading-relaxed">
                   I enjoy turning complex problems into simple, beautiful, and intuitive solutions. 
@@ -112,8 +111,8 @@ const About = () => {
               {/* Quick Stats */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Calendar, label: '4+ Years Experience', value: '50+ Projects' },
-                  { icon: MapPin, label: 'San Francisco, CA', value: 'Remote Ready' },
+                  { icon: Calendar, label: '1.5+ Years Experience', value: '35+ Projects' },
+                  { icon: MapPin, label: 'Pakistan, Sialkot', value: 'Remote Ready' },
                 ].map((stat, index) => (
                   <div key={index} className="glass p-4 rounded-lg text-center hover:glow-accent transition-all">
                     <stat.icon className="h-8 w-8 text-primary mx-auto mb-2" />
@@ -125,7 +124,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Timeline & Skills */}
+          {/* Timeline */}
           <div className="space-y-12">
             {/* Timeline */}
             <div ref={timelineRef} className="relative">
@@ -156,27 +155,6 @@ const About = () => {
                       </div>
                       <h4 className="font-semibold text-lg mb-2">{item.title}</h4>
                       <p className="text-sm text-muted">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Skills */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-8 text-accent">Technical Skills</h3>
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div key={index} className="glass p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-sm text-accent">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-card rounded-full h-2 overflow-hidden">
-                      <div
-                        className="h-2 bg-gradient-primary rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
                     </div>
                   </div>
                 ))}

@@ -6,6 +6,7 @@ import Projects from '../components/Projects';
 import Services from '../components/Services';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import Skills from '../components/Skills';
 
 const Portfolio = () => {
   return (
@@ -13,6 +14,7 @@ const Portfolio = () => {
       <Navbar />
       <Hero />
       <About />
+      <Skills />
       <Projects />
       <Services />
       <Contact />
