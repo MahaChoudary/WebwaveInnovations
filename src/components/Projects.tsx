@@ -3,6 +3,7 @@ import { ExternalLink, Github, Code, Smartphone, Globe } from 'lucide-react';
 import codingoImage from '../assets/codingo.png';
 import wukalaGptImage from '../assets/wukalagpt.png';
 import cafeImage from '../assets/cafe.png';
+import zahratoilImage from '../assets/zahratoil.jpeg';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -76,6 +77,31 @@ const Projects = () => {
         'Fast loading and smooth navigation',
       ],
     },
+     {
+      title: 'Zahrat Hair Oil — Premium Hair Care Brand Platform',
+      description:
+        'A professional brand website designed for a premium hair oil business, focused on showcasing product benefits, natural ingredients, and brand trust through a clean, elegant, and customer-centric digital experience.',
+      image: zahratoilImage,
+      imageFit: 'contain' as const,
+      roundedImage: true,
+      tech: [
+        'Frontend: Next.js, React, TypeScript, Tailwind CSS',
+        'Backend: Node.js, RESTful APIs, Secure form handling',
+        'Database: PostgreSQL / MongoDB',
+        'Deployment: Vercel or Netlify+ Git-based CI/CD',
+      ],
+      liveUrl: '#',
+      githubUrl: '#',
+      category: 'BeautyTech',
+      features: [
+        'Product showcase highlighting hair oil benefits and ingredients',
+        'Brand story and formulation philosophy',
+        'Usage guidance and hair care tips',
+        'Customer inquiry and contact forms',
+        'Clean, beauty-focused and trust-driven interface',
+        'Fully responsive design for all devices',
+      ],
+    }
   ];
 
   return (
