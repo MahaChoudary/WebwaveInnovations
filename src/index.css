@@ -1,3 +1,11 @@
+@layer utilities {
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px hsl(var(--primary-cyan) / 0.8)) drop-shadow(0 0 16px hsl(var(--accent-mint) / 0.5));
+  }
+  .animate-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
