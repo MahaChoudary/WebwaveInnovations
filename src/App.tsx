@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-
+import AIChat from "./components/AiChat";
 const queryClient = new QueryClient();
 
 
@@ -23,6 +23,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ScrollToTopButton />
+        <AIChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
